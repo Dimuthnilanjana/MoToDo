@@ -53,7 +53,7 @@ class MemoLogActivity : AppCompatActivity(), OnClickListener {
                     else -> binding.panel4
                 }
 
-                val drawableYellow = ActivityCompat.getDrawable(this@MemoLogActivity, R.drawable.btn_yellow)
+                val drawableYellow = ActivityCompat.getDrawable(this@MemoLogActivity, R.drawable.btn_purple)
                 val drawableDefault = ActivityCompat.getDrawable(this@MemoLogActivity, R.drawable.btn_state)
                 panel.background = drawableYellow
                 delay(1000)

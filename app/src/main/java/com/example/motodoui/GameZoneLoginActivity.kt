@@ -8,19 +8,25 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.motodoui.databinding.ActivityGameZoneLoginBinding
 import com.example.motodoui.databinding.ActivityMainBinding
+import com.example.motodoui.databinding.ActivitySignUpBinding
 
 class GameZoneLoginActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityGameZoneLoginBinding
+private lateinit var binding: ActivityGameZoneLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_game_zone_login)
 
+        binding = ActivityGameZoneLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         binding.memmaster.setOnClickListener {
-            startActivity(Intent(this@GameZoneLoginActivity,MemoLogActivity::class.java))
+            val intent = Intent(this, MemoLogActivity::class.java)
+            startActivity(intent)
         }
+
 
     }
 }
