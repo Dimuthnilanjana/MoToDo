@@ -14,19 +14,21 @@
         android:id="@+id/gamebtn"
         android:layout_width="128dp"
         android:layout_height="49dp"
+        android:background="@drawable/action_button"
         android:text="Game Zone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.24"
+        app:layout_constraintHorizontal_bias="0.208"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.853" />
+        app:layout_constraintVertical_bias="0.829" />
 
     <Button
         android:id="@+id/todobtn"
         android:layout_width="128dp"
         android:layout_height="49dp"
         android:text="Your Tasks"
+        android:background="@drawable/action_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.208"
@@ -78,6 +80,7 @@
         android:layout_width="128dp"
         android:layout_height="49dp"
         android:text="Meditation"
+        android:background="@drawable/action_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.848"
@@ -103,10 +106,10 @@
         android:layout_height="135dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.165"
+        app:layout_constraintHorizontal_bias="0.186"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.723"
+        app:layout_constraintVertical_bias="0.706"
         app:srcCompat="@drawable/game"
         tools:ignore="MissingConstraints" />
 

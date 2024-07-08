@@ -29,5 +29,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MeditationActivity::class.java)
             startActivity(intent)
         }
+        binding.gamebtn.setOnClickListener {
+            val intent = Intent(this, GameZoneLoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
