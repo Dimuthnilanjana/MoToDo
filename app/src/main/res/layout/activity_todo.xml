@@ -1,49 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/todo_name_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name:" />
-
-    <EditText
-        android:id="@+id/todo_name"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/todo_message_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Message:" />
+        <TextView
+            android:id="@+id/todo_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name:" />
 
-    <EditText
-        android:id="@+id/todo_message"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine" />
+        <EditText
+            android:id="@+id/todo_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
 
-    <TextView
-        android:id="@+id/todo_date_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Date:" />
+        <TextView
+            android:id="@+id/todo_message_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Message:" />
 
-    <DatePicker
-        android:id="@+id/todo_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/todo_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine" />
 
-    <Button
-        android:id="@+id/todo_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Todo" />
+        <TextView
+            android:id="@+id/todo_date_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date:" />
 
-</LinearLayout>
+        <DatePicker
+            android:id="@+id/todo_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/todo_time_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time:" />
+
+        <TimePicker
+            android:id="@+id/todo_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:timePickerMode="spinner"
+            android:format24Hour="true"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/todo_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Todo" />
+
+    </LinearLayout>
+</ScrollView>

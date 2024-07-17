@@ -1,7 +1,6 @@
 package com.example.motodoui
 
 
-import Todo
 import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
@@ -21,8 +20,13 @@ class YourTasks : AppCompatActivity() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val todo = result.data?.getParcelableExtra<Todo>("todo")
+                val position = result.data?.getIntExtra("position", -1)
                 if (todo != null) {
-                    todoList.add(todo)
+                    if (position == -1) {
+                        todoList.add(todo)
+                    } else if (position != null) {
+                        todoList[position] = todo
+                    }
                     todoAdapter.notifyDataSetChanged()
                 }
             }
@@ -34,7 +38,7 @@ class YourTasks : AppCompatActivity() {
         setContentView(binding.root)
 
         todoList = mutableListOf()
-        todoAdapter = TodoAdapter(todoList)
+        todoAdapter = TodoAdapter(this, todoList, ::editTodo, ::deleteTodo)
         binding.todoList.layoutManager = LinearLayoutManager(this)
         binding.todoList.adapter = todoAdapter
 
@@ -42,5 +46,18 @@ class YourTasks : AppCompatActivity() {
             val intent = Intent(this, TodoActivity::class.java)
             startTodoActivity.launch(intent)
         }
+    }
+
+    private fun editTodo(todo: Todo, position: Int) {
+        val intent = Intent(this, TodoActivity::class.java).apply {
+            putExtra("todo", todo)
+            putExtra("position", position)
+        }
+        startTodoActivity.launch(intent)
+    }
+
+    private fun deleteTodo(position: Int) {
+        todoList.removeAt(position)
+        todoAdapter.notifyItemRemoved(position)
     }
 }
