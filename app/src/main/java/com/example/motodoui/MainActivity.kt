@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var firebaseAuth: FirebaseAuth
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -33,5 +34,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, GameZoneLoginActivity::class.java)
             startActivity(intent)
         }
+        binding.todobtn.setOnClickListener {
+            val intent = Intent(this, YourTasks::class.java)
+            startActivity(intent)
+        }
+
+
     }
 }

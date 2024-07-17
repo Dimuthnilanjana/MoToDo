@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="todo_date_textview" type="id" />
+    <item name="todo_message_textview" type="id" />
+    <item name="todo_name_textview" type="id" />
+</resources>
