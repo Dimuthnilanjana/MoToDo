@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "700098947140",
+    "project_id": "motodoui",
+    "storage_bucket": "motodoui.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700098947140:android:8f7ed4a661ab73685df411",
+        "android_client_info": {
+          "package_name": "com.example.motodoui"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVVtUE36d0AYWGhdqGvTxrGkoyt76ZUDo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
