@@ -7,8 +7,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.DatePicker
 import android.widget.EditText
+import android.widget.RadioGroup
 import android.widget.TimePicker
 import androidx.appcompat.app.AppCompatActivity
+
+
+import com.example.motodoui.Utils.Utils.generateUniqueId
 
 class TodoActivity : AppCompatActivity() {
 
@@ -16,6 +20,7 @@ class TodoActivity : AppCompatActivity() {
     private lateinit var todoMessageEditText: EditText
     private lateinit var todoDateDatePicker: DatePicker
     private lateinit var todoTimePicker: TimePicker
+    private lateinit var todoPriorityGroup: RadioGroup
     private var position: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +31,7 @@ class TodoActivity : AppCompatActivity() {
         todoMessageEditText = findViewById(R.id.todo_message)
         todoDateDatePicker = findViewById(R.id.todo_date)
         todoTimePicker = findViewById(R.id.todo_time)
+        todoPriorityGroup = findViewById(R.id.todo_priority_group)
         todoTimePicker.setIs24HourView(true)
 
         val todo = intent.getParcelableExtra<Todo>("todo")
@@ -37,6 +43,13 @@ class TodoActivity : AppCompatActivity() {
             val timeParts = todo.time.split(":")
             todoTimePicker.hour = timeParts[0].toInt()
             todoTimePicker.minute = timeParts[1].toInt()
+            when (todo.priority) {
+                1 -> todoPriorityGroup.check(R.id.priority_low)
+                2 -> todoPriorityGroup.check(R.id.priority_medium)
+                3 -> todoPriorityGroup.check(R.id.priority_high)
+                4 -> todoPriorityGroup.check(R.id.priority_very_high)
+                5 -> todoPriorityGroup.check(R.id.priority_urgent)
+            }
             position = intent.getIntExtra("position", -1)
         }
 
@@ -52,7 +65,17 @@ class TodoActivity : AppCompatActivity() {
             val minute = todoTimePicker.minute
             val todoTime = String.format("%02d:%02d", hour, minute)
 
-            val newTodo = Todo(todo?.id ?: 0, todoName, todoMessage, todoDate, todoTime)
+            val selectedPriorityButtonId = todoPriorityGroup.checkedRadioButtonId
+            val priority = findViewById<View>(selectedPriorityButtonId).tag.toString().toInt()
+
+            val newTodo = Todo(
+                id = if (todo == null) generateUniqueId() else todo.id, // Use UUID if creating new Todo
+                name = todoName,
+                message = todoMessage,
+                date = todoDate,
+                time = todoTime,
+                priority = priority
+            )
             val resultIntent = Intent().apply {
                 putExtra("todo", newTodo)
                 putExtra("position", position)

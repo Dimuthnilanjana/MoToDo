@@ -59,6 +59,55 @@
             android:format24Hour="true"
             android:layout_marginBottom="16dp" />
 
+        <TextView
+            android:id="@+id/todo_priority_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Priority:" />
+
+        <RadioGroup
+            android:id="@+id/todo_priority_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/priority_low"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L"
+                android:checked="true"
+                android:tag="1" />
+
+            <RadioButton
+                android:id="@+id/priority_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:tag="2" />
+
+            <RadioButton
+                android:id="@+id/priority_high"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:tag="3" />
+
+            <RadioButton
+                android:id="@+id/priority_very_high"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:tag="4" />
+
+            <RadioButton
+                android:id="@+id/priority_urgent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Urgent"
+                android:tag="5" />
+        </RadioGroup>
+
         <Button
             android:id="@+id/todo_button"
             android:layout_width="wrap_content"

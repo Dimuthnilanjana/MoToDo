@@ -1,6 +1,7 @@
 package com.example.motodoui
 
 import android.content.Context
+import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 
-class TodoAdapter(private val context: Context, private val todoList: MutableList<Todo>, private val editTodo: (Todo, Int) -> Unit, private val deleteTodo: (Int) -> Unit) : RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
+class TodoAdapter(
+    private val context: Context,
+    private val todoList: MutableList<Todo>,
+    private val editTodo: (Todo, Int) -> Unit,
+    private val deleteTodo: (Int) -> Unit
+) : RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
 
     class TodoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val todoNameTextView: TextView = itemView.findViewById(R.id.todo_name_textview)
@@ -32,6 +38,11 @@ class TodoAdapter(private val context: Context, private val todoList: MutableLis
         holder.todoDateTextView.text = todo.date
         holder.todoTimeTextView.text = todo.time
 
+        // Set gradient border based on priority
+        val gradientDrawable = GradientDrawable()
+        gradientDrawable.setStroke(4, getColorForPriority(todo.priority))
+        holder.itemView.background = gradientDrawable
+
         holder.btnEdit.setOnClickListener {
             editTodo.invoke(todo, position)
         }
@@ -49,4 +60,22 @@ class TodoAdapter(private val context: Context, private val todoList: MutableLis
     }
 
     override fun getItemCount(): Int = todoList.size
+
+    // Function to get color based on priority
+    private fun getColorForPriority(priority: Int): Int {
+        return when (priority) {
+            1 -> context.getColor(R.color.priority_low)
+            2 -> context.getColor(R.color.priority_medium)
+            3 -> context.getColor(R.color.priority_high)
+            4 -> context.getColor(R.color.priority_very_high)
+            5 -> context.getColor(R.color.priority_urgent)
+            else -> context.getColor(R.color.priority_low)
+        }
+    }
+
+    // Function to sort the todoList by priority
+    fun sortTodoList() {
+        todoList.sortByDescending { it.priority }
+        notifyDataSetChanged()
+    }
 }

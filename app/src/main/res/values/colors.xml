@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Existing color definitions -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <!-- Add your priority colors here -->
+    <color name="priority_urgent">#FF0000</color> <!-- Red for High Priority -->
+    <color name="priority_very_high">#FFA500</color> <!-- Orange for Medium High Priority -->
+    <color name="priority_high">#FFFF00</color> <!-- Yellow for Medium Priority -->
+    <color name="priority_medium">#008000</color> <!-- Green for Medium Low Priority -->
+    <color name="priority_low">#0000FF</color> <!-- Blue for Low Priority -->
 </resources>
