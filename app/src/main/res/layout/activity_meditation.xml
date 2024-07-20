@@ -4,16 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1E1E1E"
     tools:context=".MeditationActivity">
 
+    <!-- Song 1 -->
     <TextView
+        android:id="@+id/songTitle1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is Meditation Activity"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="Meditation Blue"
+        android:textSize="18sp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/playButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        app:layout_constraintTop_toBottomOf="@id/songTitle1"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/pauseButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pause"
+        app:layout_constraintTop_toBottomOf="@id/songTitle1"
+        app:layout_constraintStart_toEndOf="@id/playButton1"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"/>
+
+    <SeekBar
+        android:id="@+id/seekBar1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/playButton1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Song 2 -->
+    <TextView
+        android:id="@+id/songTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mind Meditation"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/seekBar1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/playButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        app:layout_constraintTop_toBottomOf="@id/songTitle2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/pauseButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pause"
+        app:layout_constraintTop_toBottomOf="@id/songTitle2"
+        app:layout_constraintStart_toEndOf="@id/playButton2"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"/>
+
+    <SeekBar
+        android:id="@+id/seekBar2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/playButton2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
